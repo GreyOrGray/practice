@@ -1,0 +1,25 @@
+# Find every third sunday
+
+$startDate = get-date '01/01/2017'
+$endDate = get-date '01/01/2018'
+ 
+$sundays = @()
+$monthCounter = 1
+$sundayCounter = 0
+for ($i = $startDate; $i -lt $endDate; $i=$i.AddDays(1))
+{
+    if ($monthCounter -ne (get-date $i).month)
+    {
+        $monthCounter += 1
+        $sundayCounter = 0
+    }
+    if ((get-date $i).DayOfWeek.Value__ -eq 0)
+    {
+        $sundayCounter += 1
+        if ($sundayCounter -eq 3)
+        {
+            $sundays += ($i)
+        }
+    }
+ 
+}

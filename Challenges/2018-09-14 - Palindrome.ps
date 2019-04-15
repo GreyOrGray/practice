@@ -1,0 +1,18 @@
+# Write a function that tests whether a string is a palindrome.
+
+function Palindrome
+{ 
+    <#
+        $x = 180914_Palindrome3 'gray'
+        $x
+     
+        $x = 180914_Palindrome3 'wakawakaw'
+        $x
+    #>
+     
+    param([string]$InputVal) 
+     
+    if ($InputVal -eq ($InputVal[-1..-($InputVal.length)] -join ""))
+    {$returnVal = 'yep'} else {$returnVal = 'nope'}
+    return $returnVal
+}   
